@@ -1,0 +1,22 @@
+<template name="issuesList">
+    <div class="summary">
+        <h2> Edities ({{totalIssues}}) </h2>
+    </div>
+    <div class="issues">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="width: 6px;"></th>
+                    <th>Editie</th>
+                    <th>Artikelen</th>
+                    <th>Commentaar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each issues}}
+                    {{> issueItem}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>

@@ -1,0 +1,25 @@
+<template name="editorsList">
+    <div class="summary">
+        <h2> Redacteuren ({{activeEditors}}/{{totalEditors}}) </h2>
+    </div>
+
+    <div class="editors">
+        <table class="table table-hover">
+            <col class="name">
+            <col class="comment">
+            <thead>
+                <tr>
+                    <th>Naam</th>
+                    <th>E-mail</th>
+                    <th>Commentaar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each editors}}
+                    {{> editorItem}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+</template>
