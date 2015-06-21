@@ -1,22 +1,24 @@
-<template name="issuesList">
+<template name="articlesList">
     <div class="summary">
-        <h2> Edities ({{totalIssues}}) </h2>
+        <h2> Artikelen ({{totalArticles}}) </h2>
     </div>
-    <div class="issues">
+
+    <div class="articles">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th style="width: 1px;"></th>
+                    <th>Titel</th>
+                    <th>Auteur</th>
+                    <th>Redacteur</th>
                     <th>Editie</th>
-                    <th>Artikelen</th>
-                    <th>Commentaar</th>
                 </tr>
             </thead>
             <tbody>
-                {{#each issues}}
-                    {{> issueItem}}
+                {{#each articles}}
+                    {{> articleItem}}
                 {{/each}}
             </tbody>
         </table>
     </div>
+
 </template>
