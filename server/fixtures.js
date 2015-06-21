@@ -29,6 +29,7 @@ if (Articles.find().count() === 0) {
    Articles.insert({
       author: "Mater Tua",
       subject: "Poeder",
-      editor: Editors.findOne()._id
+      editor: Editors.findOne()._id,
+      issue: Issues.findOne()._id
    });
 }
