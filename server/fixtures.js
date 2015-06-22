@@ -16,6 +16,22 @@ if (Editors.find().count() === 0 ) {
    });
 }
 
+if (Articles.find().count() === 0) {
+   console.log("Filling DB with mock articles");
+   Articles.insert({
+      author: "Mater Tua",
+      title: "Random artikel",
+      pages: 3,
+      editor: Editors.findOne()._id,
+   });
+   Articles.insert({
+      author: "Mater Tua",
+      title: "Ander random artikel",
+      pages: 2,
+      editor: Editors.findOne()._id,
+   });
+}
+
 if (Issues.find().count() === 0) {
    console.log("Filling DB with mock issues");
    Issues.insert({
@@ -23,22 +39,7 @@ if (Issues.find().count() === 0) {
       comments:    "Testcommentaar",
       createdAt:   new Date(),
       dateOfIssue: new Date(),
-      color: "rgb(100,100,0)"
-   });
-}
-
-if (Articles.find().count() === 0) {
-   console.log("Filling DB with mock articles");
-   Articles.insert({
-      author: "Mater Tua",
-      title: "Geplaatst artikel",
-      editor: Editors.findOne()._id,
-      issue: Issues.findOne()._id
-   });
-   Articles.insert({
-      author: "Mater Tua",
-      title: "Ongeplaatst artikel",
-      editor: Editors.findOne()._id,
-      issue: null
+      color: "rgb(100,100,0)",
+      articles: [Articles.findOne()._id]
    });
 }
