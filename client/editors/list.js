@@ -13,14 +13,14 @@ Template.editorsList.helpers({
 Template.editorsList.events({
     "click .deleteEditor": function() {
         Editors.remove(this._id);
-    }
+    },
 });
 
 Template.editorItem.helpers({
     editorArticleCount: function() {
         return Articles.find({editor: this._id}).count();
     },
-    editorHasZeroArticlesAndIsDisabled: function() {
+    editorCanBeDeleted: function() {
         return (this.active === false) && (Articles.find({editor: this._id}).count() === 0);
     }
 });

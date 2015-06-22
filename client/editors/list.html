@@ -43,10 +43,10 @@
             <small>{{editorArticleCount}}</small>
         </td>
         <td>
-            {{#if editorHasZeroArticlesAndIsDisabled}}
+            {{#if editorCanBeDeleted}}
                 <button class="deleteEditor btn btn-danger btn-xs" type="button">&times;</button>
             {{else}}
-                <button disabled="disabled" class="btn btn-danger btn-xs" type="button">&times;</button>
+                <button disabled="disabled" class="deleteEditorDisabled btn btn-danger btn-xs" type="button">&times;</button>
             {{/if}}
         </td>
     </tr>
