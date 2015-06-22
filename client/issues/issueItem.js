@@ -3,3 +3,8 @@ Template.issueItem.helpers({
         return Articles.find({issue: this._id}).count();
     }
 });
+Template.issueItem.events({
+    click: function() {
+        console.log(this._id);
+    }
+});

@@ -31,8 +31,14 @@ if (Articles.find().count() === 0) {
    console.log("Filling DB with mock articles");
    Articles.insert({
       author: "Mater Tua",
-      title: "Poeder",
+      title: "Geplaatst artikel",
       editor: Editors.findOne()._id,
       issue: Issues.findOne()._id
+   });
+   Articles.insert({
+      author: "Mater Tua",
+      title: "Ongeplaatst artikel",
+      editor: Editors.findOne()._id,
+      issue: null
    });
 }
