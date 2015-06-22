@@ -9,3 +9,9 @@ Template.editorsList.helpers({
         return Editors.find({},{sort: {active: -1}});
     }
 });
+
+Template.editorItem.helpers({
+    editorArticleCount: function() {
+        return Articles.find({editor: this._id}).count();
+    }
+});
