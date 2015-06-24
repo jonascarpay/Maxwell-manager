@@ -22,6 +22,6 @@ Template.issueItem.helpers({
 
 Template.issueItem.events({
     click: function() {
-        Session.set("selectedIssueID",this._id)
+        Router.go('/issues/' + this._id);
     }
 });

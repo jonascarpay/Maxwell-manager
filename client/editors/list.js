@@ -24,3 +24,9 @@ Template.editorItem.helpers({
         return (this.active === false) && (Articles.find({editor: this._id}).count() === 0);
     }
 });
+
+Template.editorItem.events({
+    click: function() {
+        Router.go('/editors/' + this._id);
+    }
+});
