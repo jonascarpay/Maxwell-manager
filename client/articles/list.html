@@ -22,8 +22,6 @@
         </table>
     </div>
 
-    {{> articleNew}}
-
 </template>
 
 <template name="articleItem">
@@ -37,7 +35,9 @@
 </template>
 
 <template name="articlePgIncDec">
-    <button type="button" class="pgInc btn btn-default btn-xs">+</button>
-    <button type="button" class="pgDec btn btn-default btn-xs">-</button>
+    <div class="btn-group">
+        <button type="button" class="pgInc btn btn-default btn-xs">+</button>
+        <button type="button" class="pgDec btn btn-default btn-xs">-</button>
+    </div>
     &nbsp;{{pages}}
 </template>

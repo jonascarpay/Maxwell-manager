@@ -1,15 +1,25 @@
+Meteor.publish('editors', function() {
+   return Editors.find();
+});
+
+Meteor.publish('articles', function() {
+   return Articles.find();
+});
+
+Meteor.publish('issues', function() {
+   return Issues.find();
+});
+
 if (Editors.find().count() === 0 ) {
    console.log("Filling DB with mock editors");
    Editors.insert({
-      firstName: "Jan",
-      surname: "Van het Lid",
+      name: "Actief C. Lid",
       active: true,
       comments: "Dit is commentaar.",
       email: "Secretaris-ETV@tudelft.nl"
    });
    Editors.insert({
-      firstName: "Jan",
-      surname: "Van het Inactieve Lid",
+      name: "Inactieve L. Zak",
       active: false,
       comments: "Dit is commentaar.",
       email: "Secretaris-ETV@tudelft.nl"

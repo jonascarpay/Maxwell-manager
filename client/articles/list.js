@@ -9,8 +9,7 @@ Template.articlesList.helpers({
 
 Template.articleItem.helpers({
     formatEditor: function() {
-        var editor = Editors.findOne(this.editor);
-        return editor.surname + ", " + editor.firstName;
+        return editor = Editors.findOne(this.editor).name
     },
     formatIssue: function() {
         return "TODO"
