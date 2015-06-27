@@ -4,7 +4,7 @@ Meteor.methods({
          console.log("User " + username + " created by " + Meteor.userId());
          Accounts.createUser({
             username: username,
-            password: "bravomaxwell",
+            password: username,
             profile: profile,
          });
       } else {
