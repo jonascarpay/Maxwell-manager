@@ -5,9 +5,18 @@
 <template name="layout">
     {{> menu}}
 
-    <div class="container">
-        {{> yield}}
-    </div>
+    {{#if currentUser}}
+        <div class="container">
+            {{> yield}}
+        </div>
+        {{else}}
+        <div class="container">
+            <div class="jumbotron">
+                <h2>Niet ingelogd</h2>
+                <p>Je moet inloggen voordat je hier iets kan</p>
+            </div>
+        </div>
+    {{/if}}
 </template>
 
 <template name="menu">
@@ -22,6 +31,11 @@
                     <li class="{{isActiveRoute 'articlesList'}}"> <a href="{{pathFor 'articlesList'}}"> <span class="glyphicon glyphicon-file" aria-hidden="true"> </span> Artikelen  </a></li>
                     <li class="{{isActiveRoute 'editorsList'}}">  <a href="{{pathFor 'editorsList'}}">  <span class="glyphicon glyphicon-user" aria-hidden="true"> </span> Redacteurs </a></li>
             </ul> </div>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    {{> loginButtons}}
+                </ul>
+            </div>
         </div>
     </nav>
 </template>

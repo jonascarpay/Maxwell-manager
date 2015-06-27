@@ -1,28 +1,24 @@
-Meteor.publish('editors', function() {
-   return Editors.find();
-});
-
-Meteor.publish('articles', function() {
-   return Articles.find();
-});
-
-Meteor.publish('issues', function() {
-   return Issues.find();
-});
-
-if (Editors.find().count() === 0 ) {
-   console.log("Filling DB with mock editors");
-   Editors.insert({
-      name: "Actief C. Lid",
-      active: true,
-      comments: "Dit is commentaar.",
-      email: "Secretaris-ETV@tudelft.nl"
+if (Meteor.users.find().count() === 0) {
+   console.log("Filling DB with mock users");
+   Accounts.createUser({
+      username: 'Richard',
+      password: '123456',
+      profile: {
+         name: "Actief C. Lid",
+         active: true,
+         comments: "Dit is commentaar.",
+         email: "President-ETV@tudelft.nl"
+      },
    });
-   Editors.insert({
-      name: "Inactieve L. Zak",
-      active: false,
-      comments: "Dit is commentaar.",
-      email: "Secretaris-ETV@tudelft.nl"
+   Accounts.createUser({
+      username: 'Harry',
+      password: '123456',
+      profile: {
+         name: "Inactieve L. Zak",
+         active: false,
+         comments: "Dit is commentaar.",
+         email: "Secretaris-ETV@tudelft.nl"
+      }
    });
 }
 
@@ -32,13 +28,13 @@ if (Articles.find().count() === 0) {
       author: "Mater Tua",
       title: "Random artikel",
       pages: 3,
-      editor: Editors.findOne()._id,
+      editor: Meteor.users.findOne()._id,
    });
    Articles.insert({
       author: "Mater Tua",
       title: "Ander random artikel",
       pages: 2,
-      editor: Editors.findOne()._id,
+      editor: Meteor.users.findOne()._id,
    });
 }
 

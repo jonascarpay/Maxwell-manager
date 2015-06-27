@@ -10,7 +10,7 @@ Template.articlesList.helpers({
 
 Template.articleItem.helpers({
     formatEditor: function() {
-        return editor = Editors.findOne(this.editor).name
+        return editor = Meteor.users.findOne(this.editor).profile.name
     },
     formatIssue: function() {
         return "TODO"

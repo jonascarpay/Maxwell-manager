@@ -1,18 +1,18 @@
 Template.editorsList.helpers({
     totalEditors: function() {
-        return Editors.find().count();
+        return Meteor.users.find().count();
     },
     activeEditors: function() {
-        return Editors.find({active: true}).count();
+        return Meteor.users.find({"profile.active": true}).count();
     },
     editors: function() {
-        return Editors.find({},{sort: {active: -1}});
+        return Meteor.users.find({},{sort: {"profile.active": -1}});
     }
 });
 
 Template.editorsList.events({
     "click .deleteEditor": function() {
-        Editors.remove(this._id);
+        Meteor.users.remove(this._id);
     },
 });
 
@@ -21,7 +21,7 @@ Template.editorItem.helpers({
         return Articles.find({editor: this._id}).count();
     },
     editorCanBeDeleted: function() {
-        return (this.active === false) && (Articles.find({editor: this._id}).count() === 0);
+        return (this.profile.active === false) && (Articles.find({editor: this._id}).count() === 0);
     }
 });
 

@@ -29,15 +29,15 @@
 </template>
 
 <template name="editorItem">
-    <tr class="{{#if active}} {{else}} text-muted {{/if}}">
+    <tr class="{{#if profile.active}} {{else}} text-muted {{/if}}">
         <td >
-            {{name}}
+            {{profile.name}}
         </td>
         <td>
-            {{email}}
+            {{profile.email}}
         </td>
         <td>
-            <small>{{comments}}</small>
+            <small>{{profile.comments}}</small>
         </td>
         <td>
             <small>{{editorArticleCount}}</small>
