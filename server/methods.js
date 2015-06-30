@@ -1,11 +1,16 @@
 Meteor.methods({
-   createEditor: function(username, profile) {
+   createEditor: function(doc) {
       if (Meteor.userId()) {
-         console.log("User " + username + " created by " + Meteor.userId());
+         console.log("User " + doc.username + " created by " + Meteor.userId());
          Accounts.createUser({
-            username: username,
-            password: username,
-            profile: profile,
+            username: doc.username,
+            password: doc.username,
+            profile: {
+               name:     doc.name,
+               active:   doc.active,
+               comments: doc.comments,
+               email:    doc.email
+            }
          });
       } else {
          console.log("Jo iemand hackt je");

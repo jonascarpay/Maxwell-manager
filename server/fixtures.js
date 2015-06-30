@@ -2,7 +2,7 @@ if (Meteor.users.find().count() === 0) {
    console.log("Filling DB with mock users");
    Accounts.createUser({
       username: 'Richard',
-      password: '123456',
+      password: '123123',
       profile: {
          name: "Actief C. Lid",
          active: true,
@@ -12,7 +12,7 @@ if (Meteor.users.find().count() === 0) {
    });
    Accounts.createUser({
       username: 'Harry',
-      password: '123456',
+      password: '123123',
       profile: {
          name: "Inactieve L. Zak",
          active: false,

@@ -1,50 +1,8 @@
 <template name="editorNew">
     <h3>Nieuwe redacteur</h3>
-    <form class="new-editor form-horizontal">
+    {{> newEditorForm}}
+</template>
 
-        <div class="form-group">
-            <label for="newEditorUsername" class="col-sm-3 control-label">Gebruikersnaam</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="newEditorUsername" placeholder="Gebruikersnaam">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="newEditorName" class="col-sm-3 control-label">Naam</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="newEditorName" placeholder="Naam">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="newEditorEmail" class="col-sm-3 control-label">Email</label>
-            <div class="col-sm-9">
-                <input type="email" class="form-control" id="newEditorEmail" placeholder="Email">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="newEditorComments" class="col-sm-3 control-label">Commentaar</label>
-            <div class="col-sm-9">
-                <textarea class="form-control" id="newEditorComments" rows="3" placeholder="Commentaar"></textarea>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="newEditorActive" class="col-sm-3 control-label">Actief</label>
-            <div class="col-sm-9">
-                <div class="checkbox">
-                    <label>
-                        <input id="newEditorActive" type="checkbox" checked="true">
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Redacteur toevoegen</button>
-            </div>
-        </div>
-    </form>
+<template name="newEditorForm">
+    {{> quickForm schema=newEditorSchema id="newEditorForm" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" type="method" meteormethod="createEditor"}}
 </template>
