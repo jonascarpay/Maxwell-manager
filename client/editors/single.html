@@ -1,3 +1,23 @@
 <template name="editorSingle">
-    Dit is de pagina van {{profile.name}} met id {{_id}}.
+    <h2>{{profile.name}}</h2>
+
+    <div class="articles">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Auteur</th>
+                    <th>Redacteur</th>
+                    <th>Pagina's</th>
+                    <th>Editie</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each myArticles}}
+                    {{> articleItem}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 </template>
