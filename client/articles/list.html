@@ -31,7 +31,15 @@
         <td>{{author}}</td>
         <td>{{formatEditor}}</td>
         <td>{{> articlePgIncDec}} </td>
-        <td>{{formatIssue}}</td>
+        <td>
+            {{#if parentIssue}}
+                <a href="issues/{{parentIssueId}}">
+                    {{formatIssue}}
+                </a>
+            {{else}}
+                Ongeplaatst
+            {{/if}}
+        </td>
         <td>{{status}}</td>
     </tr>
 </template>

@@ -19,6 +19,12 @@ Template.articleItem.helpers({
         } else {
             return "-"
         }
+    },
+    parentIssue: function () {
+        return Issues.findOne(articleParentIssueId(this._id));
+    },
+    parentIssueId: function () {
+        return Issues.findOne(articleParentIssueId(this._id))._id;
     }
 });
 
