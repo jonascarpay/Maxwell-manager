@@ -1,6 +1,10 @@
 <template name="editorsList">
     <div class="summary">
-        <h2> Redacteuren ({{activeEditors}}/{{totalEditors}}) </h2>
+        <h2> Redacteurs ({{activeEditors}}/{{totalEditors}}) </h2>
+    </div>
+
+    <div class="page-header">
+        <a href="{{pathFor 'editorNew'}}" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Redacteur toevoegen</a>
     </div>
 
     <div class="editors">
@@ -23,9 +27,6 @@
             </tbody>
         </table>
     </div>
-
-    {{> editorNew}}
-
 </template>
 
 <template name="editorItem">

@@ -13,13 +13,12 @@ Template.articleItem.helpers({
         return editor = Meteor.users.findOne(this.editor).profile.name
     },
     formatIssue: function() {
-        return "TODO"
-            var issue = articleFindParentIssue(this._id)
-            if (issue) {
-                return issue.issueNumber.year + "." + issue.issueNumber.edition;
-            } else {
-                return "-"
-            }
+        var issue = Issues.findOne(articleParentIssueId(this._id));
+        if (issue) {
+            return issue.issueNumber.year +  "." + issue.issueNumber.edition
+        } else {
+            return "-"
+        }
     }
 });
 

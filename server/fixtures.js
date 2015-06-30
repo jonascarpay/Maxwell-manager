@@ -27,12 +27,14 @@ if (Articles.find().count() === 0) {
    Articles.insert({
       author: "Mater Tua",
       title: "Random artikel",
+      status: "Aangeleverd",
       pages: 3,
       editor: Meteor.users.findOne()._id,
    });
    Articles.insert({
       author: "Mater Tua",
       title: "Ander random artikel",
+      status: "Geindesigned",
       pages: 2,
       editor: Meteor.users.findOne()._id,
    });
