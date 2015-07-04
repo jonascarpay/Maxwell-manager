@@ -1,6 +1,17 @@
 <template name="editorSingle">
-    <h2>{{profile.name}}</h2>
+    <h2><button type="button" class="btn btn-success" data-toggle="collapse" data-target="#uef"><span class="glyphicon glyphicon-pencil"></span></button>
+        {{profile.name}}
+        {{#if profile.active}}
+        {{else}}
+            <small>Inactief</small>
+        {{/if}}
+    </h2>
 
+    <div id="uef" class="collapse">
+        {{> updateEditorForm}}
+    </div>
+
+    <h3>Artikels</h3>
     <div class="articles">
         <table class="table table-hover">
             <thead>
@@ -21,3 +32,19 @@
         </table>
     </div>
 </template>
+
+<template name="updateEditorForm">
+    {{#autoForm doc=this collection="Meteor.users" id="updateEditorForm" type="update"}}
+        <legend>Profiel bewerken </legend>
+        <fieldset>
+            {{> afQuickField name='profile.name'     template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+            {{> afQuickField name='profile.email'    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+            {{> afQuickField name='profile.active'   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+            {{> afQuickField name='profile.comments' template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
+        </fieldset>
+        <button type="submit" class='btn btn-primary'><span class="glyphicon glyphicon-pencil"></span> Opslaan</button>
+    {{/autoForm}}
+</template>
+
+
+

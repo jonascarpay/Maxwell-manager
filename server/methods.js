@@ -17,5 +17,6 @@ Meteor.methods({
       } else {
          console.log("Jo iemand hackt je");
       }
+
    }
 });

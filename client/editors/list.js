@@ -30,3 +30,9 @@ Template.editorItem.events({
         Router.go('/editors/' + this._id);
     }
 });
+
+Template.editorNew.helpers({
+    newEditorSchema: function() {
+        return Schema.NewEditor;
+    }
+});
