@@ -1,13 +1,15 @@
 <template name="editorSingle">
-    <h2><button type="button" class="btn btn-success" data-toggle="collapse" data-target="#uef"><span class="glyphicon glyphicon-pencil"></span></button>
+    <h2>
+        <!-- <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#uef"><span class="glyphicon glyphicon-pencil"></span></button>-->
+        <span class="glyphicon glyphicon-user" aria-hidden="true"> </span>
         {{profile.name}}
         {{#if profile.active}}
-        {{else}}
+            {{else}}
             <small>Inactief</small>
         {{/if}}
     </h2>
 
-    <div id="uef" class="collapse">
+    <div id="uef" class="">
         {{> updateEditorForm}}
     </div>
 
@@ -43,6 +45,7 @@
             {{> afQuickField name='profile.comments' template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
         </fieldset>
         <button type="submit" class='btn btn-primary'><span class="glyphicon glyphicon-pencil"></span> Opslaan</button>
+        <button id='verwijderknop' class='btn btn-danger'><span class="glyphicon glyphicon-remove"></span> Verwijderen</button>
     {{/autoForm}}
 </template>
 

@@ -10,19 +10,10 @@ Template.editorsList.helpers({
     }
 });
 
-Template.editorsList.events({
-    "click .deleteEditor": function() {
-        Meteor.users.remove(this._id);
-    },
-});
-
 Template.editorItem.helpers({
     editorArticleCount: function() {
         return Articles.find({editor: this._id}).count();
     },
-    editorCanBeDeleted: function() {
-        return (this.profile.active === false) && (Articles.find({editor: this._id}).count() === 0);
-    }
 });
 
 Template.editorItem.events({

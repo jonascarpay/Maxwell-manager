@@ -17,9 +17,10 @@
                     <th>Titel</th>
                     <th>Auteur</th>
                     <th>Redacteur</th>
-                    <th>Pagina's</th>
                     <th>Editie</th>
+                    <th># pag.</th>
                     <th>Status</th>
+                    <th>Commentaar</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,26 +37,19 @@
         <td>{{title}}</td>
         <td>{{author}}</td>
         <td>{{formatEditor}}</td>
-        <td>{{> articlePgIncDec}} </td>
         <td>
             {{#if parentIssue}}
-                <a href="issues/{{parentIssueId}}">
+                <a href="issues/{{parentIssue}}">
                     {{formatIssue}}
                 </a>
                 {{else}}
-                Ongeplaatst
+                -
             {{/if}}
         </td>
-        <td>{{status}}</td>
+        <td>{{pages}} </td>
+        <td class="{{formatStatus}}"><strong>{{status}}</strong></td>
+        <td>{{comments}}</td>
     </tr>
-</template>
-
-<template name="articlePgIncDec">
-    <div class="btn-group">
-        <button type="button" class="pgInc btn btn-default btn-xs">+</button>
-        <button type="button" class="pgDec btn btn-default btn-xs">-</button>
-    </div>
-    &nbsp;{{pages}}
 </template>
 
 <template name="articleNew">

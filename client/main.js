@@ -7,5 +7,8 @@ AutoForm.hooks({
     },
     newEditorForm: {
         onSuccess: function() {Router.go('/editors');}
+    },
+    updateArticleForm: {
+        onSuccess: function() {Router.go('/articles');}
     }
 });

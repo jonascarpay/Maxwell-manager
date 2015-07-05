@@ -23,7 +23,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="{{pathFor 'landingPage'}}">Maxwellmanager</a>
+                <a class="navbar-brand" href="{{pathFor 'aboutPage'}}">Maxwellmanager</a>
             </div>
             <div> <ul class="nav navbar-nav">
                     <li class="{{isActiveRoute 'landingPage'}}">  <a href="{{pathFor 'landingPage'}}">  <span class="glyphicon glyphicon-home" aria-hidden="true"> </span> Home       </a></li>
@@ -33,9 +33,16 @@
             </ul> </div>
             <div class="collapse navbar-collapse" id="navigation">
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="{{isActiveRoute 'aboutPage'}}">  <a href="{{pathFor 'aboutPage'}}">  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"> </span> </a></li>
+                    <li class="{{isActiveRoute 'settings'}}">  <a href="{{pathFor 'settings'}}">  <span class="glyphicon glyphicon-cog" aria-hidden="true"> </span> </a></li>
                     {{> loginButtons}}
                 </ul>
             </div>
         </div>
     </nav>
+</template>
+
+<template name="aboutPage">
+    <h2>De Grote Maxwellmanager</h2>
+    <p>Door Jonas Carpay</p>
 </template>

@@ -3,15 +3,9 @@ Template.articleNew.helpers({
         return Editors.find({active: true});
     }
 });
-Template.editorNew.events({
-    "submit .new-article": function(event) {
-        console.log(event);
-        Articles.insert({
-            author: event.target.newArticleAuthor.value,
-            title:  event.target.newArticleTitle.value,
-            pages:  event.target.newArticlePages.value,
-            editor: event.target.newArticleEditor.value
-        });
-        return false;
+
+Template.articleUpdate.helpers({
+    editorKV: function() {
+        return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id}});
     },
 });

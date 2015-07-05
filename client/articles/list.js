@@ -17,40 +17,40 @@ Template.articleItem.helpers({
             return "-";
         }
     },
+    parentIssue: function() {
+        return articleParentIssueId(this._id);
+    },
     formatIssue: function() {
-        return "TODO"
-            var issue = articleParentIssue(this._id)
-            if (issue) {
-                return issue.issueNumber.year + "." + issue.issueNumber.edition;
-            } else {
-                return "-"
-            }
+        var issue = Issues.findOne(articleParentIssueId(this._id));
+        if (issue) {
+            return issue.issueNumber.year + "." + issue.issueNumber.edition;
+        } else {
+            return "-"
+        }
+    },
+    formatStatus: function() {
+        switch (this.status) {
+            case "Niets":
+                return "text-danger";
+            case "Aangeschreven":
+                return "text-info";
+            case "Bevestigd":
+                return "text-muted";
+            case "Voorlopige versie":
+                return "text-warning";
+            case "Definitieve versie":
+                return "text-warning";
+            case "Geindesignd":
+                return "text-success";
+            default:
+                return "text-danger";
+        }
     }
 });
 
 Template.articleItem.events({
     click: function() {
         Router.go('/articles/' + this._id);
-    }
-});
-
-
-Template.articlePgIncDec.helpers({
-    canDecrease: function() {
-        return pages > 1;
-    }
-});
-
-Template.articlePgIncDec.events({
-    "click .pgInc": function() {
-        Articles.update({_id: this._id}, {$inc: {pages: 1}});
-        return false;
-    },
-    "click .pgDec": function() {
-        if (this.pages > 1) {
-            Articles.update({_id: this._id}, {$inc: {pages: -1}});
-            return false;
-        }
     }
 });
 

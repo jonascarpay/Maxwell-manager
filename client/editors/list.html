@@ -18,7 +18,6 @@
                     <th>E-mail</th>
                     <th>Commentaar</th>
                     <th>Artikelen</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -43,13 +42,6 @@
         </td>
         <td>
             <small>{{editorArticleCount}}</small>
-        </td>
-        <td>
-            {{#if editorCanBeDeleted}}
-                <button class="deleteEditor btn btn-danger btn-xs" type="button">&times;</button>
-                {{else}}
-                <button disabled="disabled" class="deleteEditorDisabled btn btn-danger btn-xs" type="button">&times;</button>
-            {{/if}}
         </td>
     </tr>
 </template>
