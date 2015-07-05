@@ -10,21 +10,21 @@ Template.articlesList.helpers({
 
 Template.articleItem.helpers({
     formatEditor: function() {
-        return editor = Meteor.users.findOne(this.editor).profile.name
-    },
-    formatIssue: function() {
-        var issue = Issues.findOne(articleParentIssueId(this._id));
-        if (issue) {
-            return issue.issueNumber.year +  "." + issue.issueNumber.edition
+        var editor = Meteor.users.findOne(this.editor).profile.name;
+        if (editor) {
+            return editor;
         } else {
-            return "-"
+            return "-";
         }
     },
-    parentIssue: function () {
-        return Issues.findOne(articleParentIssueId(this._id));
-    },
-    parentIssueId: function () {
-        return Issues.findOne(articleParentIssueId(this._id))._id;
+    formatIssue: function() {
+        return "TODO"
+            var issue = articleParentIssue(this._id)
+            if (issue) {
+                return issue.issueNumber.year + "." + issue.issueNumber.edition;
+            } else {
+                return "-"
+            }
     }
 });
 
@@ -52,4 +52,10 @@ Template.articlePgIncDec.events({
             return false;
         }
     }
+});
+
+Template.articleNew.helpers({
+    editorKV: function() {
+        return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id}});
+    },
 });

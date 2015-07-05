@@ -1,10 +1,13 @@
 <template name="articlesList">
-    <div class="summary">
-        <h2> Artikelen ({{totalArticles}}) </h2>
-    </div>
+    <h2>
+        <button data-toggle="collapse" data-target="#naf" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> </button>
+        Artikelen ({{totalArticles}}) 
+    </h2>
 
-    <div class="page-header">
-        <a href="{{pathFor 'articleNew'}}" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Artikel toevoegen</a>
+    <div class="collapse" id="naf">
+        <p>
+            {{> articleNew}}
+        </p>
     </div>
 
     <div class="articles">
@@ -39,7 +42,7 @@
                 <a href="issues/{{parentIssueId}}">
                     {{formatIssue}}
                 </a>
-            {{else}}
+                {{else}}
                 Ongeplaatst
             {{/if}}
         </td>
@@ -53,4 +56,19 @@
         <button type="button" class="pgDec btn btn-default btn-xs">-</button>
     </div>
     &nbsp;{{pages}}
+</template>
+
+<template name="articleNew">
+    {{#autoForm collection="Articles" id="insertArticleForm" type="insert"}}
+        <legend>Nieuw artikel</legend>
+        <fieldset>
+            {{> afQuickField name="author"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+            {{> afQuickField name="title"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+            {{> afQuickField name="pages"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+            {{> afQuickField name="editor"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" options=editorKV}}
+            {{> afQuickField name="status"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" options="allowed"}}
+            {{> afQuickField name="comments" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Toevoegen</button>
+    {{/autoForm}}
 </template>

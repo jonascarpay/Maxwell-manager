@@ -2,12 +2,3 @@
     artikel
     {{_id}}
 </template>
-
-<template name="articleNew">
-    <h3>Nieuw artikel</h3>
-    {{> newArticleForm}}
-</template>
-
-<template name="newArticleForm">
-    {{> quickForm collection="Articles" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" id="insertArticleForm" type="insert"}}
-</template>
