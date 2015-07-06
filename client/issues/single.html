@@ -1,5 +1,11 @@
 <template name="issueSingle">
-    {{#each articles}}
-        holler
+    {{#each articleObjects}}
+        {{> issueArticle}}
     {{/each}}
+</template>
+
+<template name="issueArticle">
+    <div class="article">
+        {{title}}
+    </div>
 </template>
