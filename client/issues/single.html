@@ -1,28 +1,34 @@
 <template name="issueSingle">
-    <table class="table table-bordered">
+    <table class="table table-striped table-condensed" id="issuetable">
 	    <thead>
-	    	<th>#</th>
-	        <th>LR</th>
-	        <th>Artikel</th>
+	    	<tr>
+		    	<th class="col-md-1">#</th>
+		        <th class="col-md-1">LR</th>
+		        <th class="col-md-7">Artikel</th>
+		    </tr>
 	    </thead>
 	    <tbody>
-		    {{#each articleObjects}}
-		        {{> issueArticle}}
+	    	<tr>
+		    	<td><span></span></td>
+				<td class="lr"><span></span></td>
+				<td rowspan="{{totalPages}}">
+					<ul id="articles-sortable">
+						{{#each articleObjects}}
+							{{>issueArticle}}
+						{{/each}}
+					</ul>
+				</td>
+			</tr>
+		    {{#each repeater}}
+		    	<tr>
+	            	<td><span></span></td>
+	        		<td class="lr"><span></span></td>
+	        	</tr>
 		    {{/each}}	
 	    </tbody>
     </table>
 </template>
 
 <template name="issueArticle">
-    <tr>
-    	<td><span></span></td>
-		<td class="lr"><span></span></td>
-		<td rowspan="{{pages}}">{{title}}</td>
-    </tr>
-    {{#each repeater}}
-	    <tr>
-			<td><span></span></td>
-    		<td class="lr"><span></span></td>
-	    </tr>
-	{{/each}}
+    <li style="height: calc((1.42857143em + 11px) * {{pages}})"><span>{{title}} ({{pages}})</span></li>
 </template>

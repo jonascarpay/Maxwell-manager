@@ -2,15 +2,64 @@ body {
 	counter-reset: issuetable;
 }
 
-table tr td:first-child span::after {
+#issuetable tr td:first-child span::after {
 	counter-increment: issuetable;
 	content: counter(issuetable);
 }
 
-table tr:nth-child(even) .lr span::after {
+#issuetable tr:nth-child(even) .lr span::after {
 	content: "R";
 }
 
-table tr:nth-child(odd) .lr span::after {
+#issuetable tr:nth-child(odd) .lr span::after {
 	content: "L";
+}
+
+#issuetable td[rowspan] {
+	padding: 0 !important;
+	padding-bottom: 0;
+	background: white;
+	border-left: 1px solid rgb(221, 221, 221);
+}
+
+#issuetable tr:last-child td:not([rowspan]) {
+	border-bottom: 1px solid white;
+}
+
+#articles-sortable {
+	box-sizing: border-box;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#articles-sortable li {
+	width: 100%;
+	padding: 5px;
+	margin: 0px;
+	border-bottom: 1px solid rgb(221, 221, 221);
+	display: table;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#articles-sortable li span {
+	vertical-align: middle;
+	display: table-cell;
+}
+
+#articles-sortable li:nth-child(odd) {
+	background-color: rgb(249, 249, 249);
+}
+
+#articles-sortable li:last-child {
+	border: none;
+}
+
+.sortable-ghost {
+	border: 2px dashed rgb(200, 200, 200) !important;
+}
+
+.sortable-ghost span {
+	font-size: 0;
 }
