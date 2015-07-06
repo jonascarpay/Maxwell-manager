@@ -1,11 +1,28 @@
 <template name="issueSingle">
-    {{#each articleObjects}}
-        {{> issueArticle}}
-    {{/each}}
+    <table class="table table-bordered">
+	    <thead>
+	    	<th>#</th>
+	        <th>LR</th>
+	        <th>Artikel</th>
+	    </thead>
+	    <tbody>
+		    {{#each articleObjects}}
+		        {{> issueArticle}}
+		    {{/each}}	
+	    </tbody>
+    </table>
 </template>
 
 <template name="issueArticle">
-    <div class="article">
-        {{title}}
-    </div>
+    <tr>
+    	<td><span></span></td>
+		<td class="lr"><span></span></td>
+		<td rowspan="{{pages}}">{{title}}</td>
+    </tr>
+    {{#each repeater}}
+	    <tr>
+			<td><span></span></td>
+    		<td class="lr"><span></span></td>
+	    </tr>
+	{{/each}}
 </template>

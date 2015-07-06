@@ -1,0 +1,16 @@
+body {
+	counter-reset: issuetable;
+}
+
+table tr td:first-child span::after {
+	counter-increment: issuetable;
+	content: counter(issuetable);
+}
+
+table tr:nth-child(even) .lr span::after {
+	content: "R";
+}
+
+table tr:nth-child(odd) .lr span::after {
+	content: "L";
+}
