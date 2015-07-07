@@ -44,9 +44,27 @@ Template.issueArticle.helpers({
 	return "update-each-" + this._id;
     },
     editorKV: function() {
-        return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id}});
+	return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id}});
     },
     formatEditor: function() {
 	return Meteor.users.findOne(this.editor).profile.name;
     },
+});
+
+Template.addArticle.helpers({
+    unusedArticles: function() {
+	return unplacedArticles();
+    }
+});
+
+Template.addArticle.events({
+    "submit": function() {
+	event.preventDefault();
+	if (event.target.articleField.value) {
+	    Issues.update({_id: this._id},{$push: {articles: event.target.articleField.value}});
+	} else {
+	    console.log("nope");
+	}
+	return false;
+    }
 });

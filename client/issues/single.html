@@ -1,5 +1,9 @@
 <template name="issueSingle">
     <h1>Maxwell {{issueNumber.year}}.{{issueNumber.edition}}</h1>
+    {{> issueDetails}}
+    {{> addArticle}}
+
+    <legend>Artikelen</legend>
     <table class="table table-striped table-condensed table-bordered" id="issuetable">
 	<tbody>
 	    <tr>
@@ -36,4 +40,39 @@
 	    - <span class="glyphicon glyphicon-dashboard"></span> {{status}}
 	</span>
     </li>
+</template>
+
+<template name="issueDetails">
+    <form>
+	<div class="form-group">
+	    <label for="articleField" class="col-sm-3 control-label">Artikel</label>
+	    <div class="col-sm-9">
+		<select id="articleField" name="articleField" class="form-control">
+		    {{#each unusedArticles}}
+			<option value="{{_id}}"> {{title}} </option>
+		    {{/each}}
+		</select>
+	    </div>
+	</div>
+	<button type="submit" class="btn btn-primary">Plaatsen</button>
+    </form>
+</template>
+
+<template name="addArticle">
+    {{#if unusedArticles}}
+	<legend>Ongeplaatst artikel toevoegen</legend>
+	<form>
+	    <div class="form-group">
+		<label for="articleField" class="col-sm-3 control-label">Artikel</label>
+		<div class="col-sm-9">
+		    <select id="articleField" name="articleField" class="form-control">
+			{{#each unusedArticles}}
+			    <option value="{{_id}}"> {{title}} </option>
+			{{/each}}
+		    </select>
+		</div>
+	    </div>
+	    <button type="submit" class="btn btn-primary">Plaatsen</button>
+	</form>
+    {{/if}}
 </template>

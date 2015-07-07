@@ -48,6 +48,11 @@ Template.articlePlace.events({
             articleRemoveFromAllIssues(this._id);
             Issues.update({_id: targetIssue}, {$push: {articles: this._id}});
         }
+        if (targetIssue !== "null") {
+            Router.go('/issues/'+targetIssue);
+        } else {
+            Router.go('/articles')
+        }
         return false;
     }
 });

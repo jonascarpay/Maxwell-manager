@@ -1,10 +1,4 @@
 Template.editorsList.helpers({
-    totalEditors: function() {
-        return Meteor.users.find().count();
-    },
-    activeEditors: function() {
-        return Meteor.users.find({"profile.active": true}).count();
-    },
     editors: function() {
         return Meteor.users.find({},{sort: {"profile.active": -1}});
     }
