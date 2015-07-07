@@ -1,9 +1,16 @@
 <template name="articleSingle">
     <h2>
-        <!-- <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#uef"><span class="glyphicon glyphicon-pencil"></span></button>-->
         <span class="glyphicon glyphicon-file" aria-hidden="true"> </span>
         {{title}}
+        <small>
+            {{#if articleParent}}
+                <a href="/issues/{{articleParent}}">Maxwell {{formatParent}}</a>
+                {{else}}
+                Ongeplaatst
+            {{/if}}
+        </small>
     </h2>
+    {{> articlePlace}}
     {{> articleUpdate}}
 </template>
 
@@ -16,8 +23,28 @@
             {{> afQuickField name="pages"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name="editor"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" options=editorKV}}
             {{> afQuickField name="status"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" options="allowed"}}
+            {{> afQuickField name="category" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" options="allowed"}}
             {{> afQuickField name="comments" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
         </fieldset>
         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Bewerken</button>
+        <button id='verwijderknop' class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Verwijderen</button>
     {{/autoForm}}
+</template>
+
+<template name="articlePlace">
+    <legend>Artikel plaatsen</legend>
+    <form>
+        <div class="form-group">
+            <label for="issueField" class="col-sm-3 control-label">Editie</label>
+            <div class="col-sm-9">
+                <select name="issueField" class="form-control" id="issueField">
+                    <option value="null">Geen</option>
+                    {{#each issues}}
+                        <option value="{{_id}}">{{issueNumber.year}}.{{issueNumber.edition}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Plaatsen</button>
+    </form>
 </template>

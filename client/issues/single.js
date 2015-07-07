@@ -1,4 +1,3 @@
-
 Template.issueSingle.helpers({
     articleObjects: function() {
 	return this.articles.map(function(id) {return Articles.findOne(id)});
@@ -29,3 +28,25 @@ Template.issueSingle.rendered = function() {
 	},
     });
 }
+
+Template.issueArticle.helpers({
+    bgStyle: function() {
+	switch (this.category) {
+	    case 'Raamwerk':
+		return "background-color: rgb(223, 240, 216)";
+	    case 'Advertentie':
+		return "background-color: rgb(217, 2317, 247)";
+	    default:
+		return ""
+	}
+    },
+    makeUniqueID: function() {
+	return "update-each-" + this._id;
+    },
+    editorKV: function() {
+        return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id}});
+    },
+    formatEditor: function() {
+	return Meteor.users.findOne(this.editor).profile.name;
+    },
+});

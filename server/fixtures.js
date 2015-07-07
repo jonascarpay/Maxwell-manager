@@ -28,6 +28,7 @@ if (Articles.find().count() === 0) {
       author: "Mater Tua",
       title: "Random artikel",
       status: "Voorlopige versie",
+      category: "Kopij",
       pages: 3,
       editor: Meteor.users.findOne()._id,
    });
@@ -35,6 +36,7 @@ if (Articles.find().count() === 0) {
       author: "Mater Tua",
       title: "Ander random artikel",
       status: "Definitieve versie",
+      category: "Kopij",
       pages: 2,
       editor: Meteor.users.findOne()._id,
    });
@@ -42,6 +44,7 @@ if (Articles.find().count() === 0) {
       author: "Richard",
       title: "Over auto's",
       status: "Definitieve versie",
+      category: "Kopij",
       pages: 4,
       editor: Meteor.users.findOne()._id,
    });
@@ -49,6 +52,7 @@ if (Articles.find().count() === 0) {
       author: "Die ene van hiernaast",
       title: "Ulysses",
       status: "Definitieve versie",
+      category: "Kopij",
       pages: 2,
       editor: Meteor.users.findOne()._id,
    });

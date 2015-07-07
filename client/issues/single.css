@@ -8,11 +8,11 @@ body {
 }
 
 #issuetable tr:nth-child(even) .lr span::after {
-	content: "R";
+	content: "L";
 }
 
 #issuetable tr:nth-child(odd) .lr span::after {
-	content: "L";
+	content: "R";
 }
 
 #issuetable td[rowspan] {
@@ -39,11 +39,11 @@ body {
 	margin: 0px;
 	border-bottom: 1px solid rgb(221, 221, 221);
 	display: table;
-	text-align: center;
-	vertical-align: middle;
+	/* text-align: center;*/
+	/* vertical-align: middle;*/
 }
 
-#articles-sortable li span {
+#articles-sortable li span.content {
 	vertical-align: middle;
 	display: table-cell;
 }

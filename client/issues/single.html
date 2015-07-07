@@ -1,17 +1,11 @@
 <template name="issueSingle">
-    <table class="table table-striped table-condensed" id="issuetable">
-	<thead>
-	    <tr>
-		<th class="col-md-1"></th>
-		<th class="col-md-1"></th>
-		<th class="col-md-10">Artikel</th>
-	    </tr>
-	</thead>
+    <h1>Maxwell {{issueNumber.year}}.{{issueNumber.edition}}</h1>
+    <table class="table table-striped table-condensed table-bordered" id="issuetable">
 	<tbody>
 	    <tr>
-		<td><span></span></td>
-		<td class="lr"><span></span></td>
-		<td rowspan="{{totalPages}}">
+		<td class="col-md-1"><span></span></td>
+		<td class="lr col-md-1"><span></span></td>
+		<td class="col-md-10" rowspan="{{totalPages}}">
 		    <ul id="articles-sortable">
 			{{#each articleObjects}}
 			    {{>issueArticle}}
@@ -30,5 +24,16 @@
 </template>
 
 <template name="issueArticle">
-    <li id="{{_id}}" style="height: calc((1.42857143em + 11px) * {{pages}})"><span>{{title}} ({{pages}})</span></li>
+    <li id="{{_id}}" style="{{bgStyle}}; height: calc((1.42857143em + 11px) * {{pages}})">
+	<span class="content">
+	    <a href="{{pathFor 'articleSingle' _id}}">
+		{{title}}
+		{{#if author}}
+		    - {{author}}
+		{{/if}}
+	    </a>
+	    - <span class="glyphicon glyphicon-user"></span> {{formatEditor}}
+	    - <span class="glyphicon glyphicon-dashboard"></span> {{status}}
+	</span>
+    </li>
 </template>
