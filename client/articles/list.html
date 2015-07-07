@@ -48,13 +48,13 @@
         </td>
         <td>{{pages}} </td>
         <td class="{{formatStatus}}"><strong>{{status}}</strong></td>
-        <td>{{comments}}</td>
+        <td>{{formatComments}}</td>
     </tr>
 </template>
 
 <template name="articleNew">
     {{#autoForm collection="Articles" id="insertArticleForm" type="insert"}}
-        <legend>Nieuw artikel</legend>
+        <h3>Nieuw artikel</h3>
         <fieldset>
             {{> afQuickField name="author"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name="title"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}

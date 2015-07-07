@@ -8,6 +8,9 @@ Template.editorItem.helpers({
     editorArticleCount: function() {
         return Articles.find({editor: this._id}).count();
     },
+    formatComments: function() {
+        return truncateComment(this.profile.comments);
+    }
 });
 
 Template.editorItem.events({

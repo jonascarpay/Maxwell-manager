@@ -34,7 +34,7 @@ Template.issueArticle.helpers({
 	    case 'Raamwerk':
 		return "background-color: rgb(223, 240, 216)";
 	    case 'Advertentie':
-		return "background-color: rgb(217, 2317, 247)";
+		return "background-color: rgb(252, 248, 227)";
 	    default:
 		return ""
 	}
@@ -55,12 +55,12 @@ Template.addArticle.helpers({
 	return unplacedArticles();
     },
     editorKV: function() {
-        return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id}});
+	return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id}});
     },
 });
 
 Template.addArticle.events({
-    "submita .bestaandArtikelFormulier": function() {
+    "submit .bestaandArtikelFormulier": function() {
 	event.preventDefault();
 	if (event.target.articleField.value) {
 	    Issues.update({_id: this._id},{$push: {articles: event.target.articleField.value}});
@@ -71,6 +71,6 @@ Template.addArticle.events({
     }
 });
 
-Template.issueDetails.rendered = function() {
-    $('.themakleur').colorpicker();
-}
+Template.issueDetails.onRendered(function() {
+    $('.themakleur').colorpicker({format: "rgb"});
+});

@@ -7,9 +7,9 @@ Template.articlesList.helpers({
 
 Template.articleItem.helpers({
     formatEditor: function() {
-        var editor = Meteor.users.findOne(this.editor).profile.name;
+        var editor = Meteor.users.findOne(this.editor);
         if (editor) {
-            return editor;
+            return editor.profile.name;
         } else {
             return "-";
         }
@@ -42,6 +42,9 @@ Template.articleItem.helpers({
             default:
                 return "text-danger";
         }
+    },
+    formatComments: function() {
+        return truncateComment(this.comments)
     }
 });
 

@@ -4,27 +4,29 @@
     {{> addArticle}}
 
     <h3>Artikelen</h3>
-    <table class="table table-striped table-condensed table-bordered" id="issuetable">
-	<tbody>
-	    <tr>
-		<td class="col-md-1"><span></span></td>
-		<td class="lr col-md-1"><span></span></td>
-		<td class="col-md-10" rowspan="{{totalPages}}">
-		    <ul id="articles-sortable">
-			{{#each articleObjects}}
-			    {{>issueArticle}}
-			{{/each}}
-		    </ul>
-		</td>
-	    </tr>
-	    {{#each repeater}}
+    {{#if articles}}
+	<table class="table table-striped table-condensed table-bordered" id="issuetable">
+	    <tbody>
 		<tr>
-		    <td><span></span></td>
-		    <td class="lr"><span></span></td>
+		    <td class="col-md-1"><span></span></td>
+		    <td class="lr col-md-1"><span></span></td>
+		    <td class="col-md-10" rowspan="{{totalPages}}">
+			<ul id="articles-sortable">
+			    {{#each articleObjects}}
+				{{>issueArticle}}
+			    {{/each}}
+			</ul>
+		    </td>
 		</tr>
-	    {{/each}}
-	</tbody>
-    </table>
+		{{#each repeater}}
+		    <tr>
+			<td><span></span></td>
+			<td class="lr"><span></span></td>
+		    </tr>
+		{{/each}}
+	    </tbody>
+	</table>
+    {{/if}}
 </template>
 
 <template name="issueArticle">
@@ -50,11 +52,12 @@
 	</h4>
 	<div class="collapse" id="uif">
 	    <fieldset>
+		{{> afQuickField name="issueNumber.year" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+		{{> afQuickField name="issueNumber.edition" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
 		{{> afQuickField class="themakleur" name="color"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
 		{{> afQuickField name="comments" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
 	    </fieldset>
 	    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Bewerken</button>
-	    <button id='verwijderknop' class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Verwijderen</button>
 	</div>
     {{/autoForm}}
 </template>
