@@ -22,7 +22,9 @@ Template.issueSingle.rendered = function() {
 	Sortable.create(list, {
 		animation: 150,
 		onUpdate: function (e) {
-		    console.log(this);
+		    var idArray = Array.prototype.map.call(this.el.children, function(el) {
+		    	return el.getAttribute("id")
+		    })
 	    },
 	});
 }
