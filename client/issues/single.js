@@ -22,7 +22,7 @@ Template.issueSingle.rendered = function() {
 	Sortable.create(list, {
 		animation: 150,
 		onUpdate: function (e) {
-	        //hier moet je ff je meteor collection updaten
+		    console.log(this);
 	    },
 	});
 }
