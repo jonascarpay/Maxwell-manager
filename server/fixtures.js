@@ -38,6 +38,20 @@ if (Articles.find().count() === 0) {
       pages: 2,
       editor: Meteor.users.findOne()._id,
    });
+   Articles.insert({
+      author: "Richard",
+      title: "Over auto's",
+      status: "Definitieve versie",
+      pages: 4,
+      editor: Meteor.users.findOne()._id,
+   });
+   Articles.insert({
+      author: "Die ene van hiernaast",
+      title: "Ulysses",
+      status: "Definitieve versie",
+      pages: 2,
+      editor: Meteor.users.findOne()._id,
+   });
 }
 
 if (Issues.find().count() === 0) {
@@ -47,6 +61,6 @@ if (Issues.find().count() === 0) {
       comments:    "Testcommentaar",
       dateOfIssue: new Date(),
       color: "rgb(100,100,0)",
-      articles: [Articles.findOne()._id]
+      articles: Articles.find().fetch().map(function(obj) {return obj._id}),
    });
 }
