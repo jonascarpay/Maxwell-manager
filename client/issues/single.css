@@ -2,6 +2,14 @@ body {
 	counter-reset: issuetable;
 }
 
+h3 {
+	padding-top: 30px;
+}
+
+h5 {
+	padding-top: 20px;
+}
+
 #issuetable tr td:first-child span::after {
 	counter-increment: issuetable;
 	content: counter(issuetable);

@@ -37,7 +37,7 @@
 
 <template name="updateEditorForm">
     {{#autoForm doc=this collection="Meteor.users" id="updateEditorForm" type="update"}}
-        <legend>Profiel bewerken </legend>
+        <h3>Profiel bewerken </h3>
         <fieldset>
             {{> afQuickField name='profile.name'     template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name='profile.email'    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}

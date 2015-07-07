@@ -16,7 +16,7 @@
 
 <template name="articleUpdate">
     {{#autoForm collection="Articles" doc=this id="updateArticleForm" type="update"}}
-        <legend>Artikel bewerken</legend>
+        <h3>Artikel bewerken</h3>
         <fieldset>
             {{> afQuickField name="author"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name="title"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
@@ -32,7 +32,7 @@
 </template>
 
 <template name="articlePlace">
-    <legend>Artikel plaatsen</legend>
+    <h3>Artikel plaatsen</h3>
     <form>
         <div class="form-group">
             <label for="issueField" class="col-sm-3 control-label">Editie</label>

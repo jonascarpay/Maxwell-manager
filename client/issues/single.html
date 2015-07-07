@@ -1,9 +1,9 @@
 <template name="issueSingle">
-    <h1>Maxwell {{issueNumber.year}}.{{issueNumber.edition}}</h1>
+    <h1 style="border-bottom: 3px solid {{color}}"> Maxwell {{issueNumber.year}}.{{issueNumber.edition}}</h1>
     {{> issueDetails}}
     {{> addArticle}}
 
-    <legend>Artikelen</legend>
+    <h3>Artikelen</h3>
     <table class="table table-striped table-condensed table-bordered" id="issuetable">
 	<tbody>
 	    <tr>
@@ -43,36 +43,56 @@
 </template>
 
 <template name="issueDetails">
-    <form>
-	<div class="form-group">
-	    <label for="articleField" class="col-sm-3 control-label">Artikel</label>
-	    <div class="col-sm-9">
-		<select id="articleField" name="articleField" class="form-control">
-		    {{#each unusedArticles}}
-			<option value="{{_id}}"> {{title}} </option>
-		    {{/each}}
-		</select>
-	    </div>
+    {{#autoForm collection="Issues" doc=this id="updateIssueForm" type="update"}}
+	<h4>
+	    <button style="background-color: {{color}}; border-color: {{color}}" class="btn btn-success" type="button" data-toggle="collapse" data-target="#uif" aria-expanded="false" aria-controls="collapseExample"> <span class="glyphicon glyphicon-pencil"></span> </button>
+	    Eigenschappen
+	</h4>
+	<div class="collapse" id="uif">
+	    <fieldset>
+		{{> afQuickField class="themakleur" name="color"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+		{{> afQuickField name="comments" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
+	    </fieldset>
+	    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Bewerken</button>
+	    <button id='verwijderknop' class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Verwijderen</button>
 	</div>
-	<button type="submit" class="btn btn-primary">Plaatsen</button>
-    </form>
+    {{/autoForm}}
 </template>
 
 <template name="addArticle">
-    {{#if unusedArticles}}
-	<legend>Ongeplaatst artikel toevoegen</legend>
-	<form>
-	    <div class="form-group">
-		<label for="articleField" class="col-sm-3 control-label">Artikel</label>
-		<div class="col-sm-9">
-		    <select id="articleField" name="articleField" class="form-control">
-			{{#each unusedArticles}}
-			    <option value="{{_id}}"> {{title}} </option>
-			{{/each}}
-		    </select>
+    <h4>
+	<button style="background-color: {{color}}; border-color: {{color}}" class="btn btn-success" type="button" data-toggle="collapse" data-target="#aif" aria-expanded="false" aria-controls="collapseExample"> <span class="glyphicon glyphicon-plus"></span> </button>
+	Artikel toevoegen
+    </h4>
+    <div class="collapse" id="aif">
+	{{#if unusedArticles}}
+	    <h5>Ongeplaatst artikel</h5>
+	    <form>
+		<div class="form-group">
+		    <label for="articleField" class="col-sm-3 control-label">Artikel</label>
+		    <div class="col-sm-9">
+			<select id="articleField" name="articleField" class="form-control">
+			    {{#each unusedArticles}}
+				<option value="{{_id}}"> {{title}} </option>
+			    {{/each}}
+			</select>
+		    </div>
 		</div>
-	    </div>
-	    <button type="submit" class="btn btn-primary">Plaatsen</button>
-	</form>
-    {{/if}}
+		<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Plaatsen</button>
+	    </form>
+	{{/if}}
+	{{#autoForm collection="Articles" id="insertArticleForm" type="insert"}}
+	    <h5>Nieuw artikel</h5>
+	    <fieldset>
+		{{> afQuickField name="author"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+		{{> afQuickField name="title"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+		{{> afQuickField name="pages"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+		{{> afQuickField name="editor"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" options=editorKV}}
+		{{> afQuickField name="status"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" options="allowed"}}
+		{{> afQuickField name="category"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" options="allowed"}}
+		{{> afQuickField name="comments" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
+	    </fieldset>
+	    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Aanmaken &amp; plaatsen</button>
+	{{/autoForm}}
+    </div>
 </template>

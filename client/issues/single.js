@@ -68,3 +68,7 @@ Template.addArticle.events({
 	return false;
     }
 });
+
+Template.issueDetails.rendered = function() {
+    $('.themakleur').colorpicker();
+}
