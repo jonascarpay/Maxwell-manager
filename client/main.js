@@ -10,5 +10,13 @@ AutoForm.hooks({
     },
     updateArticleForm: {
         onSuccess: function() {Router.go('/articles');}
+    },
+    issueInsertArticleForm: {
+        onSuccess: function(formType, result) {
+            var urlArray = Router.current().url.split('/');
+            var id = urlArray[urlArray.length -1];
+            Issues.update({_id: id},{$push: {articles: result}});
+        }
+
     }
 });

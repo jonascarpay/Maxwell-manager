@@ -23,7 +23,6 @@ Template.issueSingle.rendered = function() {
 	    var idArray = Array.prototype.map.call(this.el.children, function(el) {
 		return el.getAttribute("id")
 	    });
-	    console.log(idArray);
 	    Issues.update({_id: self._id},{$set: {articles: idArray}});
 	},
     });
@@ -54,11 +53,14 @@ Template.issueArticle.helpers({
 Template.addArticle.helpers({
     unusedArticles: function() {
 	return unplacedArticles();
-    }
+    },
+    editorKV: function() {
+        return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id}});
+    },
 });
 
 Template.addArticle.events({
-    "submit": function() {
+    "submita .bestaandArtikelFormulier": function() {
 	event.preventDefault();
 	if (event.target.articleField.value) {
 	    Issues.update({_id: this._id},{$push: {articles: event.target.articleField.value}});

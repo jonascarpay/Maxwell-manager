@@ -67,7 +67,7 @@
     <div class="collapse" id="aif">
 	{{#if unusedArticles}}
 	    <h5>Ongeplaatst artikel</h5>
-	    <form>
+	    <form class="bestaandArtikelFormulier">
 		<div class="form-group">
 		    <label for="articleField" class="col-sm-3 control-label">Artikel</label>
 		    <div class="col-sm-9">
@@ -81,7 +81,7 @@
 		<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Plaatsen</button>
 	    </form>
 	{{/if}}
-	{{#autoForm collection="Articles" id="insertArticleForm" type="insert"}}
+	{{#autoForm collection="Articles" id="issueInsertArticleForm" type="insert"}}
 	    <h5>Nieuw artikel</h5>
 	    <fieldset>
 		{{> afQuickField name="author"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
