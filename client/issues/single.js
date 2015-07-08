@@ -26,6 +26,15 @@ Template.issueSingle.rendered = function() {
 	    Issues.update({_id: self._id},{$set: {articles: idArray}});
 	},
     });
+    
+    //hoofd
+    Array.prototype.forEach.call(list.children, function(el) {
+    	addEventListener("dragstart", function(e) {
+		    var img = document.createElement("img");
+		    img.src = "http://kryogenix.org/images/hackergotchi-simpler.png";
+		    e.dataTransfer.setDragImage(img, 0, 0);
+		}, false)
+	})
 }
 
 Template.issueArticle.helpers({
