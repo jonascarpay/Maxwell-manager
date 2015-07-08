@@ -24,10 +24,8 @@ h5 {
 }
 
 #issuetable td[rowspan] {
-	padding: 0 !important;
-	padding-bottom: 0;
+	padding: 0;
 	background: white;
-	border-left: 1px solid rgb(221, 221, 221);
 }
 
 #articles-sortable {
@@ -42,12 +40,7 @@ h5 {
 	padding: 0 5px;
 }
 
-#articles-sortable tr:last-child td {
-	border: none;
-}
-
 #articles-sortable tr {
-	padding: 0 5px;
 	background: white;
 }
 
