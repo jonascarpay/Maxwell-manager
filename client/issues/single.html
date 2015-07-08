@@ -11,11 +11,11 @@
 		    <td class="col-md-1"><span></span></td>
 		    <td class="lr col-md-1"><span></span></td>
 		    <td class="col-md-10" rowspan="{{totalPages}}">
-			<ul id="articles-sortable">
+			<table id="articles-sortable">
 			    {{#each articleObjects}}
 				{{>issueArticle}}
 			    {{/each}}
-			</ul>
+			</table>
 		    </td>
 		</tr>
 		{{#each repeater}}
@@ -30,18 +30,16 @@
 </template>
 
 <template name="issueArticle">
-    <li id="{{_id}}" style="{{bgStyle}}; height: calc((1.42857143em + 11px) * {{pages}})">
-	<span class="content">
-	    <a href="{{pathFor 'articleSingle' _id}}">
+    <tr id="{{_id}}" style="{{bgStyle}}; height: calc((1.42857143em + 11px) * {{pages}} - 1px)" draggable="true">
+	    <td class="text-right"><a href="{{pathFor 'articleSingle' _id}}">
 		{{title}}
 		{{#if author}}
 		    - {{author}}
 		{{/if}}
-	    </a>
-	    - <span class="glyphicon glyphicon-user"></span> {{formatEditor}}
-	    - <span class="glyphicon glyphicon-dashboard"></span> {{status}}
-	</span>
-    </li>
+	    </a></td>
+	    <td class="text-center"><span class="glyphicon glyphicon-user"></span> {{formatEditor}}</td>
+	    <td class="text-left"><span class="glyphicon glyphicon-dashboard"></span> {{status}}</td>
+    </tr>
 </template>
 
 <template name="issueDetails">
