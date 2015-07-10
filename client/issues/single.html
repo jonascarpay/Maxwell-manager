@@ -31,14 +31,17 @@
 
 <template name="issueArticle">
     <tr id="{{_id}}" style="{{bgStyle}}; height: calc((1.42857143em + 11px) * {{pages}} - 1px)">
-	    <td class="text-right"><a href="{{pathFor 'articleSingle' _id}}">
+	<td class="text-center"><a href="{{pathFor 'articleSingle' _id}}">
 		{{title}}
-		{{#if author}}
-		    - {{author}}
-		{{/if}}
-	    </a></td>
-	    <td class="text-center"><span class="glyphicon glyphicon-user"></span> {{formatEditor}}</td>
-	    <td class="text-left"><span class="glyphicon glyphicon-dashboard"></span> {{status}}</td>
+	    </a>
+	</td>
+	<td class="text-left">
+	    {{#if author}}
+		{{author}}
+	    {{/if}}
+	</td>
+	<td class="text-left"><span class="glyphicon glyphicon-user"></span> {{formatEditor}}</td>
+	<td class="text-left"><span class="glyphicon glyphicon-dashboard"></span> {{status}}</td>
     </tr>
 </template>
 

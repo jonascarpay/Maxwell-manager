@@ -48,10 +48,6 @@ h5 {
 	background-color: rgb(249, 249, 249);
 }
 
-#articles-sortable td:first-child, #articles-sortable td:last-child {
-	width: 40%;
-}
-
 .sortable-ghost td {
 	border: dashed rgb(200, 200, 200) !important;
 	border-width: 2px 0 2px 0 !important;
