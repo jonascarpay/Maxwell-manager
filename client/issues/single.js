@@ -80,6 +80,16 @@ Template.addArticle.events({
     }
 });
 
+Template.issueDetails.events({
+    "click #verwijderknop": function(event) {
+	event.preventDefault();
+	if (this.articles.length == 0) {
+	    Issues.remove(this._id);
+	} else {
+	    alert("Je kan alleen edities verwijderen die geen artikelen meer bevatten");
+	}
+    }
+});
 Template.issueDetails.onRendered(function() {
     $('.themakleur').colorpicker({format: "rgb"});
 });
