@@ -1,16 +1,16 @@
 Template.issueSingle.helpers({
     articleObjects: function() {
-	return this.articles.map(function(id) {return Articles.findOne(id)});
+	return this.articles.map(function(id) {return Articles.findOne(id);});
     },
     totalPages: function() {
 	return this.articles.reduce(function(total, id) {
-	    return total + Articles.findOne(id).pages
-	}, 0)
+	    return total + Articles.findOne(id).pages;
+	}, 0);
     },
     repeater: function() {
 	return new Array(this.articles.reduce(function(total, id) {
-	    return total + Articles.findOne(id).pages
-	}, 0) - 1).join(' ').split(' ')
+	    return total + Articles.findOne(id).pages;
+	}, 0) - 1).join(' ').split(' ');
     }
 });
 
@@ -26,16 +26,16 @@ Template.issueSingle.rendered = function() {
 	    Issues.update({_id: self._id},{$set: {articles: idArray}});
 	},
     });
-    
+
     //hoofd
     Array.prototype.forEach.call(list.children, function(el) {
     	addEventListener("dragstart", function(e) {
 		    var img = document.createElement("img");
 		    img.src = "http://kryogenix.org/images/hackergotchi-simpler.png";
 		    e.dataTransfer.setDragImage(img, 0, 0);
-		}, false)
-	})
-}
+		}, false);
+	});
+};
 
 Template.issueArticle.helpers({
     bgStyle: function() {
@@ -45,20 +45,40 @@ Template.issueArticle.helpers({
 	    case 'Advertentie':
 		return "background-color: rgb(252, 248, 227)";
 	    default:
-		return ""
+		return "";
 	}
     },
     makeUniqueID: function() {
 	return "update-each-" + this._id;
     },
     editorKV: function() {
-	return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id}});
+	return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id};});
     },
     formatEditor: function() {
 	return Meteor.users.findOne(this.editor).profile.name;
     },
+    formatStatus: function () {
+	if (this.category == "Raamwerk") {
+	    if (this.status == "Geindesignd") {
+		return "";
+	    } else {
+		return "text-danger";
+	    }
+	} else {
+	    switch (this.status) {
+		case 'Geindesignd':
+		    return "";
+		case 'Aangeschreven':
+		    return "";
+		case 'Bevestigd':
+		    return "";
+		default:
+		    return "text-danger";
+	    }
+	}
+    },
 });
-
+primary
 Template.addArticle.helpers({
     unusedArticles: function() {
 	return unplacedArticles();
