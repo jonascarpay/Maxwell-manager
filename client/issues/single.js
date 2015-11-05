@@ -21,7 +21,7 @@ Template.issueSingle.rendered = function() {
 	animation: 150,
 	onUpdate: function (e) {
 	    var idArray = Array.prototype.map.call(this.el.children, function(el) {
-		return el.getAttribute("id")
+		return el.getAttribute("id");
 	    });
 	    Issues.update({_id: self._id},{$set: {articles: idArray}});
 	},
@@ -78,13 +78,13 @@ Template.issueArticle.helpers({
 	}
     },
 });
-primary
+
 Template.addArticle.helpers({
     unusedArticles: function() {
 	return unplacedArticles();
     },
     editorKV: function() {
-	return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id}});
+	return Meteor.users.find({"profile.active": true}).fetch().map(function(obj) {return {label: obj.profile.name, value: obj._id};});
     },
 });
 
@@ -103,7 +103,7 @@ Template.addArticle.events({
 Template.issueDetails.events({
     "click #verwijderknop": function(event) {
 	event.preventDefault();
-	if (this.articles.length == 0) {
+	if (this.articles.length === 0) {
 	    Issues.remove(this._id);
 	} else {
 	    alert("Je kan alleen edities verwijderen die geen artikelen meer bevatten");
