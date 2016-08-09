@@ -106,7 +106,7 @@ Template.issueDetails.events({
 	if (this.articles.length === 0) {
 	    Issues.remove(this._id);
 	} else {
-	    alert("You can only delete editions that do not contain any articles");
+	    alert("You can only delete issues that do not contain any articles");
 	}
     }
 });
