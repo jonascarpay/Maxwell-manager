@@ -27,32 +27,32 @@ if (Articles.find().count() === 0) {
    Articles.insert({
       author: "Mater Tua",
       title: "Random artikel",
-      status: "Voorlopige versie",
-      category: "Kopij",
+      status: "Temporary Version",
+      category: "Article",
       pages: 3,
       editor: Meteor.users.findOne()._id,
    });
    Articles.insert({
       author: "Mater Tua",
       title: "Ander random artikel",
-      status: "Definitieve versie",
-      category: "Kopij",
+      status: "Final Version",
+      category: "Article",
       pages: 2,
       editor: Meteor.users.findOne()._id,
    });
    Articles.insert({
       author: "Richard",
       title: "Over auto's",
-      status: "Definitieve versie",
-      category: "Kopij",
+      status: "Final Version",
+      category: "Article",
       pages: 4,
       editor: Meteor.users.findOne()._id,
    });
    Articles.insert({
       author: "Die ene van hiernaast",
       title: "Ulysses",
-      status: "Definitieve versie",
-      category: "Kopij",
+      status: "Temporary Version",
+      category: "Article",
       pages: 2,
       editor: Meteor.users.findOne()._id,
    });

@@ -27,17 +27,17 @@ Template.articleItem.helpers({
     },
     formatStatus: function() {
         switch (this.status) {
-            case "Niets":
+            case "None":
                 return "text-danger";
-            case "Aangeschreven":
+            case "Contacted":
                 return "text-info";
-            case "Bevestigd":
+            case "Confirmed":
                 return "text-muted";
-            case "Voorlopige versie":
+            case "Temporary Version":
                 return "text-warning";
-            case "Definitieve versie":
+            case "Final Version":
                 return "text-warning";
-            case "Geindesignd":
+            case "Indesigned":
                 return "text-success";
             default:
                 return "text-danger";

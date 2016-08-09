@@ -14,8 +14,8 @@
         {{else}}
         <div class="container">
             <div class="jumbotron">
-                <h2>Niet ingelogd</h2>
-                <p>Je moet inloggen voordat je hier iets kan</p>
+                <h2>Not signed in</h2>
+                <p>You have to be logged in to do something</p>
             </div>
         </div>
     {{/if}}
@@ -35,9 +35,9 @@
             </div>
             <div class="collapse navbar-collapse" id="menubar">
                 <ul class="nav navbar-nav">
-                    <li class="{{isActiveRoute 'issuesList'}}">   <a href="{{pathFor 'issuesList'}}">   <span class="glyphicon glyphicon-book" aria-hidden="true"> </span> Edities   </a></li>
-                    <li class="{{isActiveRoute 'articlesList'}}"> <a href="{{pathFor 'articlesList'}}"> <span class="glyphicon glyphicon-file" aria-hidden="true"> </span> Artikelen  </a></li>
-                    <li class="{{isActiveRoute 'editorsList'}}">  <a href="{{pathFor 'editorsList'}}">  <span class="glyphicon glyphicon-user" aria-hidden="true"> </span> Redacteurs </a></li>
+                    <li class="{{isActiveRoute 'issuesList'}}">   <a href="{{pathFor 'issuesList'}}">   <span class="glyphicon glyphicon-book" aria-hidden="true"> </span> Editions   </a></li>
+                    <li class="{{isActiveRoute 'articlesList'}}"> <a href="{{pathFor 'articlesList'}}"> <span class="glyphicon glyphicon-file" aria-hidden="true"> </span> Articles  </a></li>
+                    <li class="{{isActiveRoute 'editorsList'}}">  <a href="{{pathFor 'editorsList'}}">  <span class="glyphicon glyphicon-user" aria-hidden="true"> </span> Editors </a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="{{isActiveRoute 'aboutPage'}}">  <a href="{{pathFor 'aboutPage'}}">  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"> </span> </a></li>
@@ -49,6 +49,6 @@
 </template>
 
 <template name="aboutPage">
-    <h2>De Grote Maxwellmanager</h2>
-    <p>Door Jonas Carpay</p>
+    <h2>The Big Maxwellmanager</h2>
+    <p>By Jonas Carpay</p>
 </template>

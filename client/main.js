@@ -30,12 +30,12 @@ AutoForm.hooks({
     insertIssueForm: {
         onSuccess: function(formType, result) {
             Issues.update({_id: result},{$push: {articles: {$each: [
-                Articles.insert({title: "Kaft",            status: "Bevestigd", category: "Raamwerk", pages: 1, editor: Meteor.userId()}),
-                Articles.insert({title: "Editorial",       status: "Bevestigd", category: "Kopij",    pages: 1, editor: Meteor.userId()}),
-                Articles.insert({title: "Inhoudsopgave",   status: "Bevestigd", category: "Raamwerk", pages: 1, editor: Meteor.userId()}),
-                Articles.insert({title: "FTB",             status: "Bevestigd", category: "Kopij",    pages: 1, editor: Meteor.userId()}),
-                Articles.insert({title: "Activities",      status: "Bevestigd", category: "Kopij",    pages: 2, editor: Meteor.userId()}),
-                Articles.insert({title: "Achterkant kaft", status: "Bevestigd", category: "Raamwerk", pages: 1, editor: Meteor.userId()})
+                Articles.insert({title: "Cover",            	status: "Confirmed", category: "Framework", pages: 1, editor: Meteor.userId()}),
+                Articles.insert({title: "Editorial",       	status: "Confirmed", category: "Article",    pages: 1, editor: Meteor.userId()}),
+                Articles.insert({title: "Index",   		status: "Confirmed", category: "Framework", pages: 1, editor: Meteor.userId()}),
+                Articles.insert({title: "FTB",             	status: "Confirmed", category: "Article",    pages: 1, editor: Meteor.userId()}),
+                Articles.insert({title: "Activities",      	status: "Confirmed", category: "Article",    pages: 2, editor: Meteor.userId()}),
+                Articles.insert({title: "Rear Cover", 	   	status: "Confirmed", category: "Framework", pages: 1, editor: Meteor.userId()})
             ]}}})
         }
     }

@@ -40,9 +40,9 @@ Template.issueSingle.rendered = function() {
 Template.issueArticle.helpers({
     bgStyle: function() {
 	switch (this.category) {
-	    case 'Raamwerk':
+	    case 'Framework':
 		return "background-color: rgb(223, 240, 216)";
-	    case 'Advertentie':
+	    case 'Advertisement':
 		return "background-color: rgb(252, 248, 227)";
 	    default:
 		return "";
@@ -58,19 +58,19 @@ Template.issueArticle.helpers({
 	return Meteor.users.findOne(this.editor).profile.name;
     },
     formatStatus: function () {
-	if (this.category == "Raamwerk") {
-	    if (this.status == "Geindesignd") {
+	if (this.category == "Framework") {
+	    if (this.status == "Indesigned") {
 		return "";
 	    } else {
 		return "text-danger";
 	    }
 	} else {
 	    switch (this.status) {
-		case 'Geindesignd':
+		case 'Indesigned':
 		    return "";
-		case 'Aangeschreven':
+		case 'Contacted':
 		    return "";
-		case 'Bevestigd':
+		case 'Confirmed':
 		    return "";
 		default:
 		    return "text-danger";
@@ -106,7 +106,7 @@ Template.issueDetails.events({
 	if (this.articles.length === 0) {
 	    Issues.remove(this._id);
 	} else {
-	    alert("Je kan alleen edities verwijderen die geen artikelen meer bevatten");
+	    alert("You can only delete editions that do not contain any articles");
 	}
     }
 });

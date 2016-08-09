@@ -1,7 +1,7 @@
 <template name="issuesList">
     <h2>
         <button data-toggle="collapse" data-target="#nif" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> </button>
-        Edities
+        Issues
     </h2>
 
     <div class="collapse" id="nif">
@@ -15,10 +15,10 @@
             <thead>
                 <tr>
                     <th style="width: 1px;"></th>
-                    <th>Editie</th>
-                    <th>Artikelen</th>
-                    <th>Pagina's</th>
-                    <th>Commentaar</th>
+                    <th>Issue</th>
+                    <th>Articles</th>
+                    <th>Pages</th>
+                    <th>Comments</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,13 +42,13 @@
 
 <template name="issueNew">
     {{#autoForm collection="Issues" id="insertIssueForm" type="insert"}}
-        <h3>Nieuwe Maxwell</h3>
+        <h3>New Maxwell</h3>
         <fieldset>
             {{> afQuickField name="issueNumber.year"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name="issueNumber.edition"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField class="themakleur" name="color"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name="comments" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
         </fieldset>
-        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Aanmaken</button>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Make</button>
     {{/autoForm}}
 </template>
