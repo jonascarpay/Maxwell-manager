@@ -1,7 +1,7 @@
 <template name="articlesList">
     <h2>
         <button data-toggle="collapse" data-target="#naf" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> </button>
-        Ongeplaatste artikelen
+        Unplaced articles
     </h2>
 
     <div class="collapse" id="naf">
@@ -14,13 +14,13 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Titel</th>
-                    <th>Auteur</th>
-                    <th>Redacteur</th>
-                    <th>Editie</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Editor</th>
+                    <th>Issue</th>
                     <th># pag.</th>
                     <th>Status</th>
-                    <th>Commentaar</th>
+                    <th>Comments</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,7 +54,7 @@
 
 <template name="articleNew">
     {{#autoForm collection="Articles" id="insertArticleForm" type="insert"}}
-        <h3>Nieuw artikel</h3>
+        <h3>New Article</h3>
         <fieldset>
             {{> afQuickField name="author"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name="title"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
@@ -64,6 +64,6 @@
             {{> afQuickField name="category"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" options="allowed"}}
             {{> afQuickField name="comments" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
         </fieldset>
-        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Toevoegen</button>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add</button>
     {{/autoForm}}
 </template>

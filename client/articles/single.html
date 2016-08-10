@@ -6,7 +6,7 @@
             {{#if articleParent}}
                 <a href="/issues/{{articleParent}}">Maxwell {{formatParent}}</a>
                 {{else}}
-                Ongeplaatst
+                Unplaced
             {{/if}}
         </small>
     </h2>
@@ -16,7 +16,7 @@
 
 <template name="articleUpdate">
     {{#autoForm collection="Articles" doc=this id="updateArticleForm" type="update"}}
-        <h3>Artikel bewerken</h3>
+        <h3>Edit Article</h3>
         <fieldset>
             {{> afQuickField name="author"   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name="title"    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
@@ -26,25 +26,25 @@
             {{> afQuickField name="category" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" options="allowed"}}
             {{> afQuickField name="comments" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
         </fieldset>
-        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Bewerken</button>
-        <button id='verwijderknop' class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Verwijderen</button>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+        <button id='verwijderknop' class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</button>
     {{/autoForm}}
 </template>
 
 <template name="articlePlace">
-    <h3>Artikel plaatsen</h3>
+    <h3>Place Article</h3>
     <form>
         <div class="form-group">
-            <label for="issueField" class="col-sm-3 control-label">Editie</label>
+            <label for="issueField" class="col-sm-3 control-label">Issue</label>
             <div class="col-sm-9">
                 <select name="issueField" class="form-control" id="issueField">
-                    <option value="null">Geen</option>
+                    <option value="null">None</option>
                     {{#each issues}}
                         <option value="{{_id}}">{{issueNumber.year}}.{{issueNumber.edition}}</option>
                     {{/each}}
                 </select>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Plaatsen</button>
+        <button type="submit" class="btn btn-primary">Place</button>
     </form>
 </template>

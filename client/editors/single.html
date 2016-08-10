@@ -5,7 +5,7 @@
         {{profile.name}}
         {{#if profile.active}}
             {{else}}
-            <small>Inactief</small>
+            <small>Inactive</small>
         {{/if}}
     </h2>
 
@@ -18,11 +18,11 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Titel</th>
-                    <th>Auteur</th>
-                    <th>Redacteur</th>
-                    <th>Editie</th>
-                    <th>Pagina's</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Editor</th>
+                    <th>Edition</th>
+                    <th>Pages</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -37,15 +37,15 @@
 
 <template name="updateEditorForm">
     {{#autoForm doc=this collection="Meteor.users" id="updateEditorForm" type="update"}}
-        <h3>Profiel bewerken </h3>
+        <h3>Edit Profile </h3>
         <fieldset>
             {{> afQuickField name='profile.name'     template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name='profile.email'    template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name='profile.active'   template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
             {{> afQuickField name='profile.comments' template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" rows=6}}
         </fieldset>
-        <button type="submit" class='btn btn-primary'><span class="glyphicon glyphicon-pencil"></span> Opslaan</button>
-        <button id='verwijderknop' class='btn btn-danger'><span class="glyphicon glyphicon-remove"></span> Verwijderen</button>
+        <button type="submit" class='btn btn-primary'><span class="glyphicon glyphicon-pencil"></span> Save</button>
+        <button id='verwijderknop' class='btn btn-danger'><span class="glyphicon glyphicon-remove"></span> Delete</button>
     {{/autoForm}}
 </template>
 

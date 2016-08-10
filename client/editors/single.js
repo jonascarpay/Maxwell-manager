@@ -11,7 +11,7 @@ Template.updateEditorForm.events({
             Meteor.users.remove(this._id);
             Router.go('/editors');
         } else {
-            alert("Weggooien kan alleen als de persoon inactief is en geen artikelen toegewezen heeft");
+            alert("Deleting can only be done if the person that is inactive does not have any articles assigned");
         }
     }
 });
