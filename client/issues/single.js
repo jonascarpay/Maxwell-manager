@@ -13,7 +13,7 @@ Template.issueSingle.helpers({
 	}, 0) - 1).join(' ').split(' ');
     },
     breaklines: function(text, options) {
-	// text = Handlebars.Utils.escapeExpression(text);
+	text = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 	text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
 	return new Handlebars.SafeString(text);
     }
