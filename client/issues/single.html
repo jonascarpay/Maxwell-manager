@@ -1,5 +1,6 @@
 <template name="issueSingle">
     <h1 style="border-bottom: 3px solid {{color}}"> Maxwell {{issueNumber.year}}.{{issueNumber.edition}}</h1>
+    <div class="well"><p>{{breaklines comments}}</p></div>
     {{> issueDetails}}
     {{> addArticle}}
 

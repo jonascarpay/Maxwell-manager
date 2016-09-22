@@ -11,6 +11,11 @@ Template.issueSingle.helpers({
 	return new Array(this.articles.reduce(function(total, id) {
 	    return total + Articles.findOne(id).pages;
 	}, 0) - 1).join(' ').split(' ');
+    },
+    breaklines: function(text, options) {
+	text = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+	text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+	return new Handlebars.SafeString(text);
     }
 });
 
