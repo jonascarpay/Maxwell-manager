@@ -1,6 +1,12 @@
 <template name="issueSingle">
     <h1 style="border-bottom: 3px solid {{color}}"> Maxwell {{issueNumber.year}}.{{issueNumber.edition}}</h1>
     <div class="well"><p>{{breaklines comments}}</p></div>
+    <div class="progress">
+	<div class="progress-bar {{progressClass progress}}" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+	    {{progress}}%
+	</div>
+    </div>
+    <!-- totalpages = {{progress}}-->
     {{> issueDetails}}
     {{> addArticle}}
 
