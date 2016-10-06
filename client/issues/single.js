@@ -16,6 +16,33 @@ Template.issueSingle.helpers({
 	text = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 	text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
 	return new Handlebars.SafeString(text);
+    },
+    progress: function() {
+	total =  this.articles.reduce(function(total, id) {
+	    return total + Articles.findOne(id).pages;
+	}, 0);
+
+	var statuses = new Array();
+	statuses['None'] = 0;
+	statuses['Contacted'] = 0.2;
+	statuses['Confirmed']= 0.4;
+	statuses['Temporary Version'] = 0.6;
+	statuses['Final Version'] = 0.8;
+	statuses['Indesigned'] = 1;
+
+	finishedPages =  this.articles.reduce(function(total, id) {
+	    return total + statuses[Articles.findOne(id).status] * Articles.findOne(id).pages;
+	}, 0);
+	return Math.floor(finishedPages/total*100 + .5);
+    },
+    progressClass: function(progress) {
+	if(progress < 50) {
+	    return "progress-bar-danger";
+	} else if(progress >= 50 && progress < 80) {
+	    return "progress-bar-warning";
+	} else {
+	    return "progress-bar-success";
+	}
     }
 });
 
