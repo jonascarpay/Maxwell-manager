@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "maxman",
+      "script": "build/bundle/main.js",
+      "env": {
+        "MONGO_URL": "mongodb://maxman:maxman@localhost:27017/maxman",
+        "ROOT_URL": "http://maxman.etv.tudelft.nl",
+        "PORT": "8080"
+      }
+    }
+  ]
+}
